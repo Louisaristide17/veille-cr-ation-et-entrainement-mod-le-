@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Création et Entraînement de Modèle — Dissertation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-inner">
+   
+    <h1 class="cover-title">Création et<br/><em>Entraînement</em><br/>de Modèle</h1>
+    
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="meta-item">
+        <span class="meta-label">Discipline</span>
+        <span class="meta-value">Machine Learning</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Niveau</span>
+        <span class="meta-value">Intermédiaire — Avancé</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Année</span>
+        <span class="meta-value">2025 — 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Lire</span>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <div class="toc-title">Table des matières</div>
+    <ol>
+      <li><a href="#intro">Introduction — Qu'est-ce qu'un modèle ?</a></li>
+      <li><a href="#types">Types de modèles et paradigmes d'apprentissage</a></li>
+      <li><a href="#pipeline">Le pipeline de création d'un modèle</a></li>
+      <li><a href="#entrainement">Comment fonctionne l'entraînement ?</a></li>
+      <li><a href="#optimisation">Optimisation et hyperparamètres</a></li>
+      <li><a href="#pourquoi">Pourquoi utiliser cette approche ?</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ol>
+  </nav>
+
+  <!-- I. INTRODUCTION -->
+  <section class="section" id="intro">
+    <span class="section-number">I &nbsp;·&nbsp; Introduction</span>
+    <h2 class="section-title">Qu'est-ce qu'un modèle en intelligence artificielle ?</h2>
+
+    <p>Dans le domaine de l'intelligence artificielle, le concept de <span class="term">modèle</span> occupe une place centrale et fondatrice. Un modèle, au sens mathématique et computationnel du terme, est une représentation abstraite d'un système ou d'un phénomène réel, construite à partir de données et capable de produire des prédictions, des classifications ou des décisions sur de nouvelles entrées inconnues.</p>
+
+    <p>Contrairement aux programmes informatiques classiques, où le développeur écrit explicitement toutes les règles permettant de traiter un problème, un modèle d'apprentissage automatique découvre lui-même ces règles à partir des exemples qui lui sont fournis. C'est cette capacité d'<span class="term">inférence automatique</span> qui révolutionne l'informatique moderne.</p>
+
+    <p>On peut comparer un modèle à un être humain qui apprend à reconnaître des chats, non pas parce qu'on lui a défini précisément ce qu'est un chat, mais parce qu'il en a vu des milliers d'exemples depuis l'enfance. De la même façon, un modèle de reconnaissance d'images apprend à partir d'un vaste corpus de photographies annotées.</p>
+
+    <div class="infobox">
+      <strong>📌 Définition clé</strong>
+      <p>Un <em>modèle</em> est une fonction mathématique paramétrique — notée <strong>f(x ; θ)</strong> — qui mappe des entrées <strong>x</strong> vers des sorties <strong>ŷ</strong>. Les paramètres <strong>θ</strong> sont appris automatiquement au cours de l'entraînement pour minimiser l'écart entre <strong>ŷ</strong> et les vraies valeurs <strong>y</strong>.</p>
+    </div>
+  </section>
+
+  <!-- II. TYPES -->
+  <section class="section" id="types">
+    <span class="section-number">II &nbsp;·&nbsp; Taxonomie</span>
+    <h2 class="section-title">Types de modèles et paradigmes d'apprentissage</h2>
+
+    <p>Le domaine de l'apprentissage automatique, ou <span class="term">Machine Learning</span>, se divise en plusieurs grands paradigmes selon la nature des données disponibles et l'objectif visé. Comprendre ces paradigmes est essentiel avant de s'engager dans la création d'un modèle.</p>
+
+    <h3 class="subsection">L'apprentissage supervisé</h3>
+    <p>C'est le paradigme le plus répandu. L'algorithme est entraîné sur un jeu de données <span class="term">étiqueté</span>, c'est-à-dire où chaque exemple possède une réponse correcte connue. On parle de régression lorsque la sortie est une valeur continue (prédire un prix immobilier), et de classification lorsqu'il s'agit d'assigner une catégorie (spam ou non-spam, diagnostic médical). Les réseaux de neurones, les forêts aléatoires et les machines à vecteurs de support (SVM) sont parmi les algorithmes les plus utilisés.</p>
+
+    <h3 class="subsection">L'apprentissage non supervisé</h3>
+    <p>Ici, aucune étiquette n'est fournie. L'algorithme doit découvrir par lui-même des structures cachées dans les données. Le <span class="term">clustering</span> (regroupement), la réduction de dimensionnalité et la détection d'anomalies appartiennent à ce paradigme. L'algorithme k-moyennes ou les autoencodeurs en sont des exemples emblématiques.</p>
+
+    <h3 class="subsection">L'apprentissage par renforcement</h3>
+    <p>Un <span class="term">agent</span> apprend en interagissant avec un environnement. Il reçoit des récompenses ou des pénalités selon ses actions et cherche à maximiser sa récompense cumulative. Cette approche est à l'origine des victoires historiques de systèmes comme AlphaGo de DeepMind et des modèles de langage alignés via RLHF (Reinforcement Learning from Human Feedback).</p>
+
+    <div class="pull-quote">
+      <p>« Les données sont le carburant du modèle, mais l'architecture est son moteur. Sans l'une, l'autre ne peut avancer ; sans l'autre, l'une se dissipe dans le vide. »</p>
+      <span class="attr">Principe fondamental du Machine Learning</span>
+    </div>
+  </section>
+
+  <!-- III. PIPELINE -->
+  <section class="section" id="pipeline">
+    <span class="section-number">III &nbsp;·&nbsp; Pipeline</span>
+    <h2 class="section-title">Le pipeline complet de création d'un modèle</h2>
+
+    <p>Créer un modèle d'apprentissage automatique n'est pas un acte isolé mais un <span class="term">pipeline</span> — une chaîne structurée et itérative d'étapes interdépendantes. Chaque maillon de cette chaîne conditionne la qualité du résultat final. Omettre ou bâcler une étape peut compromettre l'intégralité du projet.</p>
+
+    <div class="schema">
+      <span class="schema-label">Figure 1 — Pipeline ML standard</span>
+      <div class="pipeline">
+        <div class="pipe-step"><span class="icon">🗂️</span><span class="label">Collecte<br/>des données</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">🧹</span><span class="label">Prépa&shy;ration<br/>& nettoyage</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">🔬</span><span class="label">Analyse<br/>exploratoire</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">🏗️</span><span class="label">Choix de<br/>l'architecture</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">⚙️</span><span class="label">Entraî&shy;nement</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">📊</span><span class="label">Évaluation<br/>& validation</span></div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-step"><span class="icon">🚀</span><span class="label">Déploie&shy;ment</span></div>
+      </div>
+    </div>
+
+    <h3 class="subsection">1. La collecte et préparation des données</h3>
+    <p>Avant tout entraînement, il faut disposer de données pertinentes, suffisantes et représentatives du problème. Cette phase, souvent sous-estimée, représente en pratique 60 à 80 % du temps total d'un projet de Machine Learning. Les données brutes sont rarements utilisables directement : elles contiennent des valeurs manquantes, des incohérences, des doublons ou des biais.</p>
+
+    <p>La <span class="term">préparation des données</span> comprend le nettoyage, la normalisation, l'encodage des variables catégorielles et la gestion des déséquilibres de classes. Elle conditionne directement les performances du modèle : un mauvais jeu de données produira invariablement un mauvais modèle, quelle que soit la sophistication de l'algorithme. C'est le principe du <em>Garbage In, Garbage Out</em>.</p>
+
+    <h3 class="subsection">2. Le choix de l'architecture</h3>
+    <p>L'architecture désigne la structure interne du modèle. Pour un réseau de neurones, cela signifie le nombre de couches, le nombre de neurones par couche, le type d'activation, et les connexions entre couches. Pour un modèle de transformer — comme ceux qui sous-tendent les grands modèles de langage — l'architecture inclut les mécanismes d'<span class="term">attention</span>, les têtes multi-attentionnelles et les couches de normalisation.</p>
+  </section>
+
+  <!-- IV. ENTRAÎNEMENT -->
+  <section class="section" id="entrainement">
+    <span class="section-number">IV &nbsp;·&nbsp; Mécanique</span>
+    <h2 class="section-title">Comment fonctionne l'entraînement d'un modèle ?</h2>
+
+    <p>L'entraînement est le cœur du processus. C'est à cette étape que le modèle apprend, c'est-à-dire ajuste ses paramètres internes pour minimiser ses erreurs sur les données d'entraînement. Ce processus repose sur deux mécanismes mathématiques fondamentaux : la <span class="term">fonction de perte</span> et la <span class="term">descente de gradient</span>.</p>
+
+    <h3 class="subsection">La fonction de perte (Loss Function)</h3>
+    <p>La fonction de perte quantifie l'erreur entre les prédictions du modèle et les valeurs réelles. Pour une tâche de régression, on utilise souvent l'<span class="term">erreur quadratique moyenne</span> (MSE). Pour une classification, on recourt à l'<span class="term">entropie croisée</span> (cross-entropy). L'objectif de l'entraînement est de minimiser cette valeur au fil des itérations.</p>
+
+    <h3 class="subsection">La rétropropagation et la descente de gradient</h3>
+    <p>La <span class="term">rétropropagation</span> (backpropagation) est l'algorithme qui permet de calculer le gradient de la fonction de perte par rapport à chaque paramètre du modèle, en utilisant la règle de dérivation en chaîne. Ce gradient indique la direction et la magnitude de l'ajustement à apporter à chaque paramètre. Puis, la <span class="term">descente de gradient</span> met à jour les paramètres dans la direction opposée au gradient, réduisant ainsi progressivement l'erreur.</p>
+
+    <div class="infobox">
+      <strong>⚡ La règle de mise à jour des paramètres</strong>
+      <p>À chaque étape d'entraînement, les paramètres θ sont mis à jour selon : <strong>θ ← θ − α · ∇L(θ)</strong>, où <strong>α</strong> est le taux d'apprentissage (learning rate) et <strong>∇L(θ)</strong> est le gradient de la perte. Ce cycle se répète sur des centaines de milliers d'itérations.</p>
+    </div>
+
+    <h3 class="subsection">Epochs, batches et itérations</h3>
+    <p>L'entraînement s'organise en <span class="term">epochs</span> — des passes complètes sur l'ensemble du jeu de données. À chaque epoch, les données sont divisées en <span class="term">mini-batches</span> (sous-ensembles) pour des raisons d'efficacité computationnelle. La descente de gradient stochastique par mini-batches (SGD) est aujourd'hui la méthode dominante, souvent améliorée par des optimiseurs adaptifs comme <span class="term">Adam</span> ou <span class="term">AdamW</span>.</p>
+
+    <h3 class="subsection">Overfitting et régularisation</h3>
+    <p>Un danger majeur de l'entraînement est le <span class="term">surapprentissage</span> (overfitting) : le modèle mémorise les données d'entraînement au lieu d'en extraire des patterns généralisables. Il performe alors excellemment sur les données connues mais échoue sur de nouveaux exemples. Les techniques de <span class="term">régularisation</span> — comme le dropout, la régularisation L2 (weight decay) ou l'augmentation de données — permettent d'atténuer ce phénomène.</p>
+  </section>
+
+  <!-- V. OPTIMISATION -->
+  <section class="section" id="optimisation">
+    <span class="section-number">V &nbsp;·&nbsp; Optimisation</span>
+    <h2 class="section-title">Hyperparamètres et stratégies d'optimisation</h2>
+
+    <p>Contrairement aux paramètres appris automatiquement, les <span class="term">hyperparamètres</span> sont des configurations fixées par l'ingénieur avant le démarrage de l'entraînement. Ils contrôlent le processus d'apprentissage lui-même et ont un impact déterminant sur les performances finales du modèle.</p>
+
+    <h3 class="subsection">Les hyperparamètres critiques</h3>
+    <p>Le <span class="term">taux d'apprentissage</span> (learning rate) est sans doute l'hyperparamètre le plus sensible. Trop élevé, il provoque une divergence de l'entraînement ; trop bas, la convergence devient excessivement lente ou se bloque dans des minima locaux. La <span class="term">taille du batch</span>, le <span class="term">nombre d'epochs</span>, la profondeur du réseau et les techniques de régularisation sont d'autres hyperparamètres fondamentaux.</p>
+
+    <h3 class="subsection">La recherche d'hyperparamètres</h3>
+    <p>Trouver les meilleurs hyperparamètres est un problème d'optimisation en soi. On dispose de plusieurs stratégies : la <span class="term">recherche aléatoire</span> (random search), la <span class="term">recherche sur grille</span> (grid search), et les méthodes plus sophistiquées basées sur l'<span class="term">optimisation bayésienne</span>. Les frameworks comme Optuna ou Ray Tune automatisent ce processus à grande échelle.</p>
+
+    <h3 class="subsection">Transfer Learning et Fine-Tuning</h3>
+    <p>Plutôt que de créer et d'entraîner un modèle de zéro — ce qui requiert d'immenses ressources — le <span class="term">transfer learning</span> consiste à réutiliser un modèle préentraîné sur une large tâche générique (comme un grand modèle de langage ou un réseau de vision entraîné sur ImageNet), puis à l'affiner (<span class="term">fine-tuning</span>) sur la tâche spécifique cible. Cette approche réduit drastiquement les besoins en données et en puissance de calcul.</p>
+
+    <div class="pull-quote">
+      <p>« Entraîner un modèle, c'est sculpter dans l'espace des paramètres : chaque itération retire un peu d'erreur pour révéler la forme qui se cachait dans les données. »</p>
+      <span class="attr">Analogie de la modélisation</span>
+    </div>
+  </section>
+
+  <!-- VI. POURQUOI -->
+  <section class="section" id="pourquoi">
+    <span class="section-number">VI &nbsp;·&nbsp; Pertinence</span>
+    <h2 class="section-title">Pourquoi créer et entraîner des modèles ?</h2>
+
+    <p>La question de la pertinence de ce paradigme mérite une réponse rigoureuse. Pourquoi recourir à l'apprentissage automatique plutôt qu'à une approche algorithmique classique ? La réponse tient à la nature même de certains problèmes que la programmation explicite est structurellement incapable de résoudre efficacement.</p>
+
+    <h3 class="subsection">La complexité intrinsèque des problèmes réels</h3>
+    <p>Reconnaître une image, traduire une phrase, détecter une fraude bancaire, diagnostiquer une pathologie sur un scanner médical — ces tâches impliquent des milliers de variables interdépendantes et des patterns non linéaires impossibles à codifier à la main. Un modèle entraîné sur des millions d'exemples peut capturer ces nuances de manière beaucoup plus précise que n'importe quelle règle écrite par un expert humain.</p>
+
+    <h3 class="subsection">Scalabilité et automatisation</h3>
+    <p>Une fois entraîné, un modèle peut traiter des millions de requêtes par seconde à un coût marginal quasi nul. Cette <span class="term">scalabilité</span> est impossible à atteindre avec des équipes humaines. C'est ce qui permet aux plateformes de recommandation (Netflix, Spotify, YouTube) de personnaliser l'expérience de centaines de millions d'utilisateurs simultanément.</p>
+
+    <h3 class="subsection">Adaptation et amélioration continue</h3>
+    <p>Un modèle peut être réentraîné régulièrement sur de nouvelles données, lui permettant de s'adapter aux évolutions du monde réel. Cette capacité d'<span class="term">apprentissage continu</span> est un avantage compétitif majeur dans des domaines où les données évoluent rapidement, comme la finance, la cybersécurité ou les systèmes de recommandation.</p>
+
+    <h3 class="subsection">Découverte de connaissances nouvelles</h3>
+    <p>Au-delà de l'automatisation, les modèles constituent des outils de <span class="term">découverte scientifique</span>. AlphaFold de DeepMind a prédit la structure tridimensionnelle de presque toutes les protéines connues, résolvant en quelques années un problème que la biologie moléculaire n'avait pu résoudre en cinq décennies. En climatologie, en physique des particules ou en génomique, les modèles ouvrent des perspectives inédites.</p>
+
+    <div class="infobox">
+      <strong>🌍 Cas d'usage en Afrique de l'Ouest</strong>
+      <p>En Côte d'Ivoire et dans la sous-région, les modèles d'apprentissage automatique trouvent des applications concrètes : prévision des rendements agricoles (cacao, café), détection précoce des maladies des cultures, optimisation des réseaux de distribution d'énergie, et modélisation épidémiologique. La création de modèles locaux, entraînés sur des données locales, est un enjeu stratégique de souveraineté numérique.</p>
+    </div>
+  </section>
+
+  <!-- VII. CONCLUSION -->
+  <div class="conclusion-box section" id="conclusion">
+    <span class="section-number">VII &nbsp;·&nbsp; Conclusion</span>
+    <h2 class="section-title">Synthèse et perspectives</h2>
+
+    <p>La création et l'entraînement de modèles constituent le cœur opérationnel de l'intelligence artificielle moderne. Loin d'être une boîte noire mystérieuse, ce processus obéit à des principes mathématiques rigoureux — gradient, rétropropagation, optimisation — que tout praticien sérieux se doit de maîtriser.</p>
+
+    <p>Nous avons vu que la qualité d'un modèle dépend de cinq facteurs essentiels : la qualité et la quantité des données, le choix d'une architecture adaptée au problème, la rigueur du processus d'entraînement, la maîtrise de l'optimisation des hyperparamètres, et enfin une évaluation honnête sur des données de test non vues. Omettre l'un de ces facteurs compromet l'ensemble du projet.</p>
+
+    <p>En définitive, créer et entraîner un modèle n'est pas seulement un exercice technique : c'est une démarche scientifique qui exige curiosité, rigueur et esprit critique. Dans un monde de plus en plus façonné par les algorithmes, comprendre ces mécanismes — et savoir les questionner — est devenu une compétence citoyenne et professionnelle indispensable.</p>
+  </div>
+
+</div>
+
+
+
+<script>
+  // Intersection Observer for scroll animations
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
