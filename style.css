@@ -78,7 +78,7 @@
 
   .cover-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-size: clamp(4rem, 9vw, 10rem);
     font-weight: 900;
     color: var(--paper);
     line-height: 1.1;
@@ -275,7 +275,7 @@
 
   .section p {
     margin-bottom: 1.4em;
-    font-size: 1.05rem;
+    font-size: 1.8rem;
     color: #1a1a1a;
     text-align: justify;
     hyphens: auto;
@@ -482,7 +482,7 @@
 
   .conclusion-box p::first-letter { all: unset; }
 
-
+  /* ── FOOTER ── */
   
 
   /* ── ANIMATIONS ── */
